@@ -1,0 +1,21 @@
+# Bỏ qua thư mục môi trường ảo
+venv/
+.venv/
+env/
+venv
+./venv
+./venv/
+# Bỏ qua file cache
+__pycache__/
+__pycache__
+*.py[cod]
+./__pycache__
+*/__pycache__/
+*.pyc
+# Bỏ qua TOÀN BỘ các file model nặng
+*.gguf
+*.whl
+models/*.gguf
+
+# Bỏ qua dữ liệu vector
+vectorstores/
