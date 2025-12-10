@@ -37,7 +37,7 @@ Dự án này áp dụng kiến trúc *RAG (Retrieval-Augmented Generation)*.
 
 2.  *Hệ thống lõi (Backend):*
     * *[LangChain](https://www.langchain.com/):* Framework chính để kết nối các thành phần của hệ thống RAG.
-    * *[CTransformers](https://github.com/marella/ctransformers):* Thư viện để chạy các mô hình LLM (định dạng GGUF) cục bộ trên CPU/GPU.
+    * *[Llama-cpp-Python](https://abetlen.github.io/llama-cpp-python/whl/cu124/llama-cpp-python/):* Thư viện.
     * *Mô hình Ngôn ngữ (LLM):* Sử dụng vinallama-7b-chat_q5_0.gguf (hoặc một mô hình tương tự) để sinh câu trả lời.
     * *Cơ sở dữ liệu Vector (Vector DB):*
         * *[FAISS](https://faiss.ai/):* Thư viện của Facebook để tìm kiếm tương đồng (similarity search) siêu nhanh.
@@ -49,11 +49,12 @@ Dự án này áp dụng kiến trúc *RAG (Retrieval-Augmented Generation)*.
 2.  *(Online) Truy vấn:*
     * Người dùng nhập câu hỏi qua giao diện Streamlit.
     * Câu hỏi được vector hóa.
-    * Hệ thống RetrievalQA của LangChain sử dụng FAISS để tìm *3* đoạn văn bản (k=3) trong kho tài liệu có nội dung liên quan nhất đến câu hỏi.
+    * Hệ thống Conversational Retrieval Chain của LangChain sử dụng FAISS.
 3.  *(Online) Sinh câu trả lời:*
     * Các đoạn văn bản liên quan (context) và câu hỏi (question) được đưa vào một *Prompt Template* (khuôn mẫu câu lệnh).
     * Prompt này được gửi đến mô hình vinallama-7b-chat.
     * Mô hình LLM sẽ tổng hợp thông tin chỉ từ context được cung cấp để tạo ra câu trả lời cuối cùng.
+    * Sử dụng Conversation Buffer Memory để lưu trữ lịch sử chat.
 
 ## 🚀 Cài đặt & Chạy dự án
 
