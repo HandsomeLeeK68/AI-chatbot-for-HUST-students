@@ -16,7 +16,9 @@ Sinh viên có thể hỏi về mọi thứ, từ:
 * Và bất kỳ quy định nào khác.
 
 ## 📸 Demo
-![Demo Giao diện Chatbot](https://github.com/user-attachments/assets/542e4ff0-8389-4656-8b44-18c7184861e6)
+![demo_introAI](https://github.com/user-attachments/assets/f91da6a4-c100-4dae-bde4-560060e7be3f)
+
+
 
 ## ✨ Tính năng chính
 
@@ -75,12 +77,17 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 
-*Bước 3: Deploy lên local*
+*Bước 3: Chạy file prepare_vector_db.py để tạo vector database*
 ```bash
-streamlit run app.py
+python prepare_vector_db.py
 ```
 
-*Bước 4: Tải mô hình LLM (vì Github không cho phép upload file > 100Mb)*
+*Bước 4: Deploy lên local*
+```bash
+python -m streamlit run app.py
+```
+
+*Bước 5: Tải mô hình LLM (vì Github không cho phép upload file > 100Mb)*
 ```bash
 Link tải model llm: https://huggingface.co/vilm/vinallama-7b-chat-GGUF/tree/main
 ```
