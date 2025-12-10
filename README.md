@@ -72,25 +72,33 @@ python -m venv venv
 .\venv\Scripts\activate
 ```
 
-*Bước 2: Tải các thư viện cần thiết*
+*Bước 2: Tải llama-cpp-python*
+
+https://abetlen.github.io/llama-cpp-python/whl/cu124/llama-cpp-python/
+
+Chọn phiên bản v0.2.90 tương thích với phiên bản python trên máy bạn 
+
+*Bước 3: Tải các thư viện cần thiết*
 ```bash
 pip install -r requirements.txt
 ```
 
-*Bước 3: Chạy file prepare_vector_db.py để tạo vector database*
+*Bước 4: Chạy file prepare_vector_db.py để tạo vector database*
 ```bash
 python prepare_vector_db.py
-```
-
-*Bước 4: Deploy lên local*
-```bash
-python -m streamlit run app.py
 ```
 
 *Bước 5: Tải mô hình LLM (vì Github không cho phép upload file > 100Mb)*
 ```bash
 Link tải model llm: https://huggingface.co/vilm/vinallama-7b-chat-GGUF/tree/main
 ```
+
+*Bước 6: Deploy lên local*
+```bash
+python -m streamlit run app.py
+```
+
+
 
 Tùy chọn: các bạn có thể tải thêm các file khác để làm đa dạng input cho mô hình RAG học<br>
 Truy cập vào URL: localhost:8502
