@@ -1,5 +1,6 @@
 #.\venv\Scripts\activate
 # streamlit run app.py
+
 import streamlit as st
 import time
 from QA_Chatbot import load_llm, read_vector_db, create_qa_chain
@@ -106,9 +107,16 @@ if prompt := st.chat_input("Nhập câu hỏi của bạn..."):
                 result_text = response.get('answer', "Xin lỗi, không có câu trả lời.")
                 
                 # Hiệu ứng gõ chữ
-                for chunk in result_text.split():
-                    full_response += chunk + " "
-                    time.sleep(0.05)
+                import re
+                
+                # Dùng regex để tách từ nhưng GIỮ LẠI khoảng trắng và xuống dòng
+                # split() cũ sẽ xóa mất \n khiến văn bản bị dồn cục
+                tokens = re.split(r'(\s+)', result_text) 
+                
+                for token in tokens:
+                    full_response += token
+                    # Giảm thời gian sleep xuống một chút để chat mượt hơn
+                    time.sleep(0.01) 
                     message_placeholder.markdown(full_response + "▌")
                 message_placeholder.markdown(full_response)
                 
@@ -118,4 +126,14 @@ if prompt := st.chat_input("Nhập câu hỏi của bạn..."):
     
     st.session_state.messages.append({"role": "assistant", "content": full_response})
 
-# st.caption("AI có thể mắc lỗi, vui lòng kiểm tra lại")
+# git init
+# git remote add origin link_to_your_repo
+# git add .
+# git commit -m "Initial commit"
+# git branch -M main   # Đặt tên nhánh là main (tuỳ repo)
+# git push -u origin main
+
+# mỗi lần sửa code xong, chạy lệnh này để push lên repo
+# git add .
+# git commit -m "Mô tả thay đổi"
+# git push

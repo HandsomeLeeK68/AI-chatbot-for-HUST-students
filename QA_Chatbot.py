@@ -87,6 +87,12 @@ def create_qa_chain(llm, vector_db):
     2. Nếu không tìm thấy thông tin trong ngữ cảnh, hãy trả lời: "Xin lỗi, tôi không tìm thấy thông tin này trong bộ quy chế hiện tại."
     3. Trả lời đúng trọng tâm, văn phong lịch sự, trang trọng.
 
+    Yêu cầu trình bày (BẮT BUỘC):
+    - Sử dụng định dạng Markdown để trình bày đẹp mắt.
+    - Các ý chính phải được gạch đầu dòng (-) rõ ràng.
+    - **In đậm** các từ khóa quan trọng hoặc tiêu đề mục.
+    - Phân chia đoạn văn hợp lý, không viết thành một khối văn bản dài.
+
     Ngữ cảnh:
     {context}
     <|im_end|>
